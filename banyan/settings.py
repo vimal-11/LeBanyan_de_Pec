@@ -39,6 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'users.apps.UsersConfig',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -101,6 +107,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+    'users.models.EmailBackend',
+]
+
+LOGIN_REDIRECT_URL = 'index'
+LOGIN_URL = 'account_login'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/

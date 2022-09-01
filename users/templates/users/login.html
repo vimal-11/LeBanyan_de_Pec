@@ -1,0 +1,52 @@
+{% extends "users/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<div class="login-form">
+    <form method="post" class="form-group">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="form-panel">
+            <div class="field">
+                {{ form.username.errors }}
+                    <label for="{{ form.username.id_for_label }}">Username</label>
+                <div class="control">
+                    {{ form.username }}
+                </div>
+            </div>
+            <div class="field">
+                {{ form.password.errors }}
+                <label for="{{ form.password.id_for_label }}">Password</label>
+                <div class="control">
+                    {{ form.password }}
+                </div>
+            </div>
+            <div class="field is-flex">
+                <div class="switch-block">
+                    <label class="f-switch">
+                        <input type="checkbox" class="is-switch">
+                        <i></i>
+                    </label>
+                    <div class="meta">
+                        <p>Remember me?</p>
+                    </div>
+                </div>
+                <a href="{% url 'password_reset' %}">Forgot Password?</a>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="button is-solid primary-button is-fullwidth raised btn btn-outline-info" type="submit">Login</button>
+        </div>
+    </form>
+
+    <div class="account-link has-text-centered">
+        <a href="{% url 'register' %}">Don't have an account? Sign Up</a>
+    </div>
+</div>
+
+{% endblock content %}
