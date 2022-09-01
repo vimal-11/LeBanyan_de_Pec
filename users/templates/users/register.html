@@ -1,0 +1,25 @@
+{% extends "users/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+<div class="m-auto col-md-8">
+<div class="content-section">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            
+            {{form|crispy}}
+            
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Sign Up</button>
+        </div>
+    </form>
+</div>
+</div>
+
+{% endblock content %}
