@@ -1,0 +1,7 @@
+info.py
+*.pyc
+*.sqlite
+*.sqlite3
+*.log
+*.rar
+*/__pycache__
